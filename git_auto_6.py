@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Git автоматтандыру скрипті - 6-шы нұсқа
-Ерекшелігі: Commit жасалған соң, нәтижені log.txt файлына жазу
-"""
-
 import subprocess
 import os
 from datetime import datetime
@@ -101,7 +94,7 @@ def git_commit(message):
     if code == 0:
         print("✓ Commit сәтті жасалды")
         
-        # Соңғы commit туралы мәліметті алу
+      
         code2, commit_info, _ = run_git_command([
             "git", "log", "-1", "--format=%H %s - %an (%ad)"
         ])
@@ -111,7 +104,7 @@ def git_commit(message):
             log_message = f"COMMIT ЖАСАЛДЫ: {commit_details}"
             write_to_log(log_message)
             
-            # Қосымша: commit санын есептеу
+    
             code3, commit_count, _ = run_git_command([
                 "git", "rev-list", "--count", "HEAD"
             ])
@@ -172,32 +165,32 @@ def main():
     print("Ерекшелігі: Commit нәтижесін log.txt файлына жазу")
     print("=" * 60)
     
-    # Log файлын бастау
+
     write_to_log("=" * 50)
     write_to_log("GIT АВТОМАТТАНДЫРУ БАСТАЛДЫ")
     
-    # 1. Статусты тексеру
+
     if not git_status():
         write_to_log("Өзгерістер табылмады, скрипт аяқталды")
         return
     
-    # 2. Файлдарды қосу
+
     if not git_add():
         return
     
-    # 3. Commit хабарламасын енгізу
+ 
     commit_msg = input("\nCommit хабарламасын енгізіңіз: ").strip()
     if not commit_msg:
         commit_msg = f"Auto commit - {datetime.now().strftime('%Y-%m-%d %H:%M')}"
     
-    # 4. Commit жасау (нәтиже log.txt-ке автоматты жазылады)
+    
     if not git_commit(commit_msg):
         return
     
-    # 5. Log-ты көрсету
+   
     git_log_summary()
     
-    # 6. Push жасау (опция)
+    
     do_push = input("\nRemote-ке push жасау керек пе? (y/n): ").strip().lower()
     if do_push == 'y':
         git_push()
@@ -209,7 +202,7 @@ def main():
 
 
 if __name__ == "__main__":
-    # Git repository-де екенін тексеру
+    
     if not os.path.exists(".git"):
         print("✗ Қате: Бұл Git repository емес!")
         print("Алдымен 'git init' командасын орындаңыз")
