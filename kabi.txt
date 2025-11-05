@@ -1,2 +1,2 @@
 Изменённые файлы:
-test_git.py
+kabi_git.py
