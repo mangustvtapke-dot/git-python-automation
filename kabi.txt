@@ -1,3 +1,2 @@
 Изменённые файлы:
-abi10.py
-kk10.py
+test_git.py
