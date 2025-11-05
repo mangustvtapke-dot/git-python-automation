@@ -36,6 +36,8 @@ class GitAutomation:
             print(f"📄 Список изменённых файлов сохранён в {filename}")
         else:
             print("✅ Нет изменённых файлов для записи.")
+            print(f"📂 Текущая директория: {os.getcwd()}")
+
 
     def commit_changes(self, message="Auto commit"):
         self.save_changed_files("kabi.txt")
