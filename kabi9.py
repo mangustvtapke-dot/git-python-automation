@@ -12,7 +12,6 @@ class GitAutomation:
             print("✅ Git-репозиторий найден.")
 
     def run_command(self, command):
-        """Выполняет системную команду и возвращает результат"""
         try:
             result = subprocess.run(command, capture_output=True, text=True, check=True)
             return result.stdout.strip()
