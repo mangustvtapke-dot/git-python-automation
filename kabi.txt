@@ -1,3 +1,3 @@
 Изменённые файлы:
-abi9.py
-kabi10.py
+abi10.py
+kk10.py
